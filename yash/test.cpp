@@ -4,6 +4,6 @@ using namespace std;
 
 int main(){
     
-    cout<<"IT's working";
+    cout<<"Am i still able to push";
     return 0;
 }
