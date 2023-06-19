@@ -1,5 +1,7 @@
 .vscode
 .DS_Store
+.cph
+*.bin
 output
 *.exe
 *.out
