@@ -32,8 +32,39 @@
 #define prA(arr, s, e) {for(bint i = s;i < e; i++){ cout<<arr[i]<<" ";}cout<<endl;} 
 
 using namespace std;
-int main(){
-    
-    cout<<"IT's working";
-    return 0;
-}
+class Solution {
+public:
+
+
+    void recDP(int n, map<int, int> &mp){
+        if(mp[n] != -1)
+            return;
+
+        if(n % 2 == 0 ){
+            recDP(n / 2, mp);
+            mp[n] = mp[n / 2];
+            }
+        else{
+            recDP(n-1, mp);
+            mp[n] = mp[n - 1] + 1;}
+    }
+    vector<int> countBits(int n) {
+        vector<int> ans;
+        map<int,int> dp;
+        dp[0] = 0;
+        for(int i = 1; i <=n; i++){
+            dp[i] = -1;
+            recDP(i, dp);
+        }
+        
+        
+        
+
+        for(auto i : dp){
+            ans.push_back(i.second);
+        }
+        return ans;
+
+
+    }
+};
