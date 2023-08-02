@@ -27,5 +27,5 @@ for(i=0;i<ans.size();i++){
 	cout<<ans[i];
 
 }
-
+//Instead of breaking into two loops, we can use % for the indexes which are crossing n.for example, if we have to shift by 2 places, the n-1th index will go to n+1, and n+1%n will give 1, so it will cyclic rotate.
 }
