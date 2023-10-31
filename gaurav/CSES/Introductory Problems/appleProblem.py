@@ -39,6 +39,6 @@ def solve(i, lefSum, rigSum):
     
     return min(solve(i+1, lefSum + arr[i], rigSum), solve(i+1, lefSum, rigSum + arr[i]));
 
-ans = solve(0, 0 , 0);
+ans = solve( 0, 0 , 0);
 
 print(ans);
