@@ -1,40 +1,42 @@
 #include<iostream>
 using namespace std;
 
-int partition(arr,s,e){
-	int count = 0;
-	for(int i=0;i<e;i++){
-		if(arr[i]<arr[0]){count++;}
-		swap(arr[0],arr[count-1]);
-		int i=0,j=e;
-		while(s<=p && e >=p){
-			if(arr[i]>arr[count-1]&& arr[j]<arr[count-1]){
+void printarray(int arr[],int s,int e){
+	for(int i=0;i<=e;i++){cout<<arr[i]<<" ";}
+	cout<<endl;
+}
+// 10,57,1,83,51
+int partition(int arr[],int s,int e){
+	int count = s;
+	for(int k=s+1;k<=e;k++){
+		if(arr[k]<arr[s]){count++;}}
+	swap(arr[s],arr[count]);
+	int i=s,j=e;
+	while(i<count && j>count){
+		if(arr[i]>arr[count] && arr[j]<arr[count]){
 			swap(arr[i++],arr[j--]);
-			}
-			else{
-			i++;j--;
-			}
 		}
-
+		else if(arr[i]>arr[count]){
+			j--;
+		}
+		else if(arr[j]<arr[count]){i++;}
+		else {i++;j--;}
 	}
-
+	printarray(arr,s,e);
+	cout<<"Count is "<<count<<endl;
+	return count;
 
 }
-
-
-
 void quickSort(int arr[],int s, int e){
 	if(s>=e){return;}
-	p=partition(arr,s,e);
-	quickSort(arr, s, p);
-	quickSort(arr,p+1,e);
+	int p;
+	p = partition(arr,s,e);
+	quickSort(arr, s, p-1);
+ 	quickSort(arr,p+1,e);
 }
-
-
-
 int main(){
-	int arr[5]={10,57,1,83,51};
-	quickSort(arr,0,4);
-	for(auto i:arr){cout<<i;}
+	int arr[6]={10,57,1,83,51,90};
+	quickSort(arr,0,5);
+	for(auto i:arr){cout<<i<<" ";}
 
 }
