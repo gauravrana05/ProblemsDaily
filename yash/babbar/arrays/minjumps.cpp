@@ -1,14 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int minJumps(int arr[], int n){
+ int minJumps(int arr[], int n){
         int jumps = 0;
         int currentPosition=0;
-        int max=0;
         int maxIndex=0;
         
-        while(currentPosition<n){
+        while(currentPocdsition<n){
             if(currentPosition+arr[currentPosition]<n-1){
+                int max = 0;
             for(int i=currentPosition+1;i<=currentPosition+arr[currentPosition];i++){
                 int maxJump = i-currentPosition + arr[i];
                 if(max<=maxJump){
@@ -16,17 +16,16 @@ int minJumps(int arr[], int n){
                     maxIndex = i;
                 }
             }
-            currentPosition = maxIndex;
-	cout<<currentPosition<<endl;
-if(arr[currentPosition]==0){return -1;}
+            currentPosition = maxIndex;if(arr[currentPosition]==0){return -1;}
             jumps++;
         }
         else return ++jumps;
         }
     
 return -1;
+    }
 
-}
+
 
 int main(){
 

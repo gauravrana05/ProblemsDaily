@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include<bits/stdc++>
 using namespace std;
 void printarray(vector<int> v){
 	for(auto i:v)
