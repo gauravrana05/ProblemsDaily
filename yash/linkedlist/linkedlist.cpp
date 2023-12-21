@@ -14,19 +14,18 @@ class llnode{
 
 };
 
-		void insertathead(llnode* &head,int data){
-		llnode* temp2 = new llnode(data);
-		temp2->next = head;
-		head = temp2;
+void insertathead(llnode* &head,int data){
+	llnode* temp2 = new llnode(data);
+	temp2->next = head;
+	head = temp2;
 
-		}
-		void print(llnode* head){
-		while(head!=NULL){cout<<head->value<<" ";head=head->next;}
-cout<<endl;
-		}
+}
+void print(llnode* head){
+	while(head!=NULL){cout<<head->value<<" ";head=head->next;}
+	cout<<endl;
+}
 
 void insertattail(llnode* &tail,int data){
-
 	llnode* temp = new llnode(data);
 	tail-> next = temp;
 	tail = temp;
@@ -49,16 +48,48 @@ void insertinmiddle(llnode* &head, int position, int data){
 
 }
 
+void deleteelement(llnode* &head,int pos){
+	if(pos == 1){
+		llnode* temp = head;
+		head = head->next;
+		delete temp;
+	}
+
+	else {
+		llnode* prev = NULL;
+		llnode* curr = head;
+		int count = 1;
+		while(count<=pos){
+			prev = curr;
+			curr= curr->next;
+			count++;
+		}
+		
+		prev->next = curr->next;
+		delete curr;
+
+
+	}
+}
+
+
+
 
 
 int main(){
-llnode* temp = new llnode(5);
-llnode* head = temp;
-llnode* tail = temp;
-insertathead(head,1);
-insertattail(tail,7);
-insertathead(head,2);
-insertinmiddle(head,3,12);
-insertattail(tail,10);
-print(head);
+	llnode* temp = new llnode(5);
+	llnode* head = temp;
+	llnode* tail = temp;
+	insertathead(head,1);
+	insertattail(tail,7);
+	insertathead(head,2);
+	insertinmiddle(head,3,12);
+	insertattail(tail,10);
+	print(head);
+	deleteelement(head,1);
+	print(head);
+	deleteelement(head,2);
+	print(head);
 }
+
+
