@@ -48,6 +48,7 @@ void insertinmiddle(llnode* &head, int position, int data){
 
 }
 
+<<<<<<< HEAD
 void deleteelement(llnode* &head,int pos){
 	if(pos == 1){
 		llnode* temp = head;
@@ -74,6 +75,29 @@ void deleteelement(llnode* &head,int pos){
 
 
 
+=======
+llnode* rev(llnode* &head){
+
+	llnode* prev = NULL;
+	llnode* curr = head;
+	llnode* nex;
+
+	while(curr!=NULL){
+
+		nex = curr->next;
+		curr->next = prev;
+		prev = curr;
+		curr = nex;
+
+
+	}
+	return prev;
+
+
+
+}
+
+>>>>>>> f72b7cc49136c36dae10c8b0c414db5cb377c8fe
 
 
 int main(){
@@ -86,10 +110,15 @@ int main(){
 	insertinmiddle(head,3,12);
 	insertattail(tail,10);
 	print(head);
+<<<<<<< HEAD
 	deleteelement(head,1);
 	print(head);
 	deleteelement(head,2);
 	print(head);
+=======
+	llnode* reve = rev(head);
+	print(reve);
+>>>>>>> f72b7cc49136c36dae10c8b0c414db5cb377c8fe
 }
 
 
