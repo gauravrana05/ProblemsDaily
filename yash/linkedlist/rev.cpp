@@ -46,8 +46,18 @@ curr=next;
 }
 return prev;
 
+}
+
+
+
+node* recrev(node* &head){
+
+
+
+
 
 }
+
 
 int main(){
 
