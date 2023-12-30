@@ -50,6 +50,7 @@ node* reverse(node* &head){
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 }
 
 
@@ -60,6 +61,8 @@ node* recrev(node* &head){
 
 
 =======
+=======
+>>>>>>> Stashed changes
 node* recrev(node* &head){
 
 	if(head->next==NULL || head==NULL){
@@ -71,12 +74,20 @@ node* recrev(node* &head){
 	head->next->next = head;
 	head->next = NULL;
 	return chhota;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 }
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 =======
 
 
