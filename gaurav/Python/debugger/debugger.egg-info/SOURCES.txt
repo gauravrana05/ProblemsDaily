@@ -1,0 +1,9 @@
+README.md
+setup.py
+debugger/__init__.py
+debugger/printer.py
+debugger.egg-info/PKG-INFO
+debugger.egg-info/SOURCES.txt
+debugger.egg-info/dependency_links.txt
+debugger.egg-info/requires.txt
+debugger.egg-info/top_level.txt

@@ -94,136 +94,68 @@ void read(T &first, Args &...args)
 #define inf 1000000000
 #define pi 3.141592653589793
 #define br cout << endl;
-vector<array<int, 3>> north;
-vector<array<int, 3>> east;
-const int maxV = 1e4;
-vector<int> adj[maxV];
-vector<int> parent(maxV, -1);
-vector<int> ansV(maxV);
+
 using namespace std;
 
-void setIO(string s)
+void func(vector<int> a, map<int, tuple<int, int, int>> &mp, int &ans)
 {
-  freopen((s + ".in").c_str(), "r", stdin);
-  freopen((s + ".out").c_str(), "w", stdout);
-}
-
-int dfs(int node, int parent)
-{
-  int ans = 1;
-  for (int next : adj[node])
+  int mx = -INFINITY;
+  int aofi;
+  for (auto i : mp)
   {
-    if (next != parent)
+    if (get<0>(i.second) > mx)
     {
-      ans += dfs(next, node);
+      mx = get<0>(i.second);
+      aofi = i.first;
     }
   }
-  ansV[node] = ans;
-  return ans;
+  auto k = mp[aofi];
+  int g2 = get<2>(k);
+
+  rep(i, get<1>(k), g2)
+  {
+    int ku = aofi;
+    if (ku != a[i])
+    {
+      ans += get<0>(mp[a[i]]);
+      g2 = max(g2, get<0>(mp[a[i]]));
+      mp[a[i]] = tuple<int, int, int>(0, 0, 0);
+    }
+  }
 }
 
 void solve()
 {
-  int n;
-  read(n);
-  vector<pair<int, int>> pos(n);
+  int n, q;
+  read(n, q);
+  vector<int> a(n);
+  read(a);
+
+  map<int, tuple<int, int, int>> mp;
+
   rep(i, 0, n)
   {
-    char d;
-    read(d);
-    pair<int, int> p;
-    read(p.first, p.second);
-    array<int, 3> varr = {p.ff, p.ss, i};
-    if (d == 'E')
+    if (mp.find(a[i]) != mp.end())
     {
-      east.push_back(varr);
+      auto k = mp[a[i]];
+      tuple<int, int, int> tp(get<0>(k) + 1, get<1>(k), i);
+      mp[a[i]] = tp;
     }
     else
     {
-      north.push_back(varr);
+      tuple<int, int, int> tp(1, i, i);
+      mp[a[i]] = tp;
     }
-    pos[i] = p;
-  }
-
-  vector<vector<int>> meetTime;
-  for (auto nC : north)
-  {
-    for (auto eC : east)
-    {
-      int yT = eC[1] - nC[1];
-      int xT = nC[0] - eC[0];
-
-      if (xT == yT)
-      {
-        continue;
-      }
-      if (yT > xT && xT > 0)
-      {
-        meetTime.push_back({yT, nC[2], eC[2], 0});
-      }
-      else if (yT < xT && yT > 0)
-      {
-        meetTime.push_back({xT, eC[2], nC[2], 1});
-      }
-    }
-  }
-  sort(meetTime.begin(), meetTime.end());
-
-  vector<int> ans(n, inf);
-  for (auto mt : meetTime)
-  {
-    if (ans[mt[2]] == inf && ans[mt[1] == inf])
-    {
-      ans[mt[1]] = mt[0];
-      adj[mt[2]].push_back(mt[1]);
-      parent[mt[1]] = mt[2];
-      continue;
-    }
-    if (ans[mt[1]] == inf)
-    {
-      if (mt[3])
-      {
-        int start = pos[mt[2]].ss;
-        int end = start + ans[mt[2]];
-        if (pos[mt[1]].ss >= start && pos[mt[1]].ss <= end)
-        {
-          ans[mt[1]] = mt[0];
-          adj[mt[2]].push_back(mt[1]);
-          parent[mt[1]] = mt[2];
-        }
-      }
-      else
-      {
-        int start = pos[mt[2]].ff;
-        int end = start + ans[mt[2]];
-
-        if (pos[mt[1]].ff >= start && pos[mt[1]].ff <= end)
-        {
-          ans[mt[1]] = mt[0];
-          adj[mt[2]].push_back(mt[1]);
-          parent[mt[1]] = mt[2];
-        }
-      }
-    }
-  }
-  rep(i, 0, n)
-  {
-    if (parent[i] == -1)
-    {
-      dfs(i, -1);
-    }
-  }
-  for (auto i : ansV)
-  {
-    cout << i - 1 << endl;
   }
 }
 
 int main()
 {
   ios_base::sync_with_stdio(0);
-  setIO("filename");
 
-  solve();
+  int t;
+  read(t);
+  while (t--)
+    solve();
   return 0;
 }

@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 
 #define debug(...)                                                             \
@@ -94,12 +93,7 @@ void read(T &first, Args &...args)
 #define inf 1000000000
 #define pi 3.141592653589793
 #define br cout << endl;
-vector<array<int, 3>> north;
-vector<array<int, 3>> east;
-const int maxV = 1e4;
-vector<int> adj[maxV];
-vector<int> parent(maxV, -1);
-vector<int> ansV(maxV);
+
 using namespace std;
 
 void setIO(string s)
@@ -108,122 +102,46 @@ void setIO(string s)
   freopen((s + ".out").c_str(), "w", stdout);
 }
 
-int dfs(int node, int parent)
+int getMinutes(const string &time1, const string &time2)
 {
-  int ans = 1;
-  for (int next : adj[node])
+  int h1, m1, h2, m2;
+  char colon;
+  istringstream stream1(time1);
+  stream1 >> h1 >> colon >> m1;
+
+  istringstream stream2(time2);
+  stream2 >> h2 >> colon >> m2;
+
+  int totalMin1 = h1 * 60 + m1;
+  int totalMin2 = h2 * 60 + m2;
+
+  if (totalMin1 > totalMin2)
   {
-    if (next != parent)
-    {
-      ans += dfs(next, node);
-    }
+    totalMin2 += 24 * 60;
   }
-  ansV[node] = ans;
-  return ans;
+
+  return totalMin2 - totalMin1;
 }
-
-void solve()
-{
-  int n;
-  read(n);
-  vector<pair<int, int>> pos(n);
-  rep(i, 0, n)
-  {
-    char d;
-    read(d);
-    pair<int, int> p;
-    read(p.first, p.second);
-    array<int, 3> varr = {p.ff, p.ss, i};
-    if (d == 'E')
-    {
-      east.push_back(varr);
-    }
-    else
-    {
-      north.push_back(varr);
-    }
-    pos[i] = p;
-  }
-
-  vector<vector<int>> meetTime;
-  for (auto nC : north)
-  {
-    for (auto eC : east)
-    {
-      int yT = eC[1] - nC[1];
-      int xT = nC[0] - eC[0];
-
-      if (xT == yT)
-      {
-        continue;
-      }
-      if (yT > xT && xT > 0)
-      {
-        meetTime.push_back({yT, nC[2], eC[2], 0});
-      }
-      else if (yT < xT && yT > 0)
-      {
-        meetTime.push_back({xT, eC[2], nC[2], 1});
-      }
-    }
-  }
-  sort(meetTime.begin(), meetTime.end());
-
-  vector<int> ans(n, inf);
-  for (auto mt : meetTime)
-  {
-    if (ans[mt[2]] == inf && ans[mt[1] == inf])
-    {
-      ans[mt[1]] = mt[0];
-      adj[mt[2]].push_back(mt[1]);
-      parent[mt[1]] = mt[2];
-      continue;
-    }
-    if (ans[mt[1]] == inf)
-    {
-      if (mt[3])
-      {
-        int start = pos[mt[2]].ss;
-        int end = start + ans[mt[2]];
-        if (pos[mt[1]].ss >= start && pos[mt[1]].ss <= end)
-        {
-          ans[mt[1]] = mt[0];
-          adj[mt[2]].push_back(mt[1]);
-          parent[mt[1]] = mt[2];
-        }
-      }
-      else
-      {
-        int start = pos[mt[2]].ff;
-        int end = start + ans[mt[2]];
-
-        if (pos[mt[1]].ff >= start && pos[mt[1]].ff <= end)
-        {
-          ans[mt[1]] = mt[0];
-          adj[mt[2]].push_back(mt[1]);
-          parent[mt[1]] = mt[2];
-        }
-      }
-    }
-  }
-  rep(i, 0, n)
-  {
-    if (parent[i] == -1)
-    {
-      dfs(i, -1);
-    }
-  }
-  for (auto i : ansV)
-  {
-    cout << i - 1 << endl;
-  }
-}
-
 int main()
 {
   ios_base::sync_with_stdio(0);
-  setIO("filename");
+  setIO("time");
 
-  solve();
+  vector<pair<string, string>> inOutTime(21);
+  double minutes;
+  int totalMin = 0, count = 0;
+
+  for (auto &i : inOutTime)
+  {
+    cin >> i.first >> i.second;
+    totalMin += getMinutes(i.first, i.second);
+    count++;
+  }
+
+  int avgTime = totalMin / count;
+  int hours = avgTime / 60;
+
+  int min = avgTime % 60;
+  cout << "The average Time is " << hours << " Hours " << min << " Minutes";
   return 0;
 }

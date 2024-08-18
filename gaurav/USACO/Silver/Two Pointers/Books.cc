@@ -104,13 +104,34 @@ void setIO(string s)
 
 void solve()
 {
+  int n, t;
+  read(n, t);
+  vector<int> array(n);
+  read(array);
+
+  int count = 0;
+  
+  for(int i=0; i< n; i++){
+    int c = 0, rem = t;
+    for(int j = i; j< n; j++){
+        rem-= array[j];
+        if(rem >= 0){
+          c++;
+        }
+
+    }
+    count = max(count, c);
+  }
+  print(count);
+
 }
 
 int main()
 {
     ios_base::sync_with_stdio(0);
-    setIO("filename");
+    // setIO("filename");
 
     solve();
     return 0;
 }
+

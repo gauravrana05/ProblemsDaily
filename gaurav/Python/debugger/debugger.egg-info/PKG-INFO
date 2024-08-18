@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: debugger
+Version: 0.1
+Summary: A package for debugging.
+Home-page: https://github.com/yourusername/debug_printer
+Author: Gaurav Rana
+Author-email: ranaofficial05@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: colorama
+
+# degugger
+
+A package for debugging that prints variables, dictionaries, nested dictionaries, lists, nested lists, and tuples with various colors and proper formatting.
+
+## Installation
+
+```bash
+pip install debugger
+```

@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 
 #define debug(...)                                                             \
@@ -94,12 +93,7 @@ void read(T &first, Args &...args)
 #define inf 1000000000
 #define pi 3.141592653589793
 #define br cout << endl;
-vector<array<int, 3>> north;
-vector<array<int, 3>> east;
-const int maxV = 1e4;
-vector<int> adj[maxV];
-vector<int> parent(maxV, -1);
-vector<int> ansV(maxV);
+
 using namespace std;
 
 void setIO(string s)
@@ -108,122 +102,29 @@ void setIO(string s)
   freopen((s + ".out").c_str(), "w", stdout);
 }
 
-int dfs(int node, int parent)
-{
-  int ans = 1;
-  for (int next : adj[node])
-  {
-    if (next != parent)
-    {
-      ans += dfs(next, node);
-    }
-  }
-  ansV[node] = ans;
-  return ans;
-}
-
 void solve()
 {
-  int n;
-  read(n);
-  vector<pair<int, int>> pos(n);
-  rep(i, 0, n)
+  bint n, m;
+  read(n, m);
+  vector<bint> cities(n), towers(m);
+  read(cities);
+  read(towers);
+  bint i = 0, j = 0, c, t = towers[j], ans = 0;
+  while (i < n)
   {
-    char d;
-    read(d);
-    pair<int, int> p;
-    read(p.first, p.second);
-    array<int, 3> varr = {p.ff, p.ss, i};
-    if (d == 'E')
+    c = cities[i++];
+    while (j < m - 1 && abs(c - towers[j + 1]) <= (c - towers[j]))
     {
-      east.push_back(varr);
+      t = towers[++j];
     }
-    else
-    {
-      north.push_back(varr);
-    }
-    pos[i] = p;
+    ans = max(ans, abs(c - t));
   }
-
-  vector<vector<int>> meetTime;
-  for (auto nC : north)
-  {
-    for (auto eC : east)
-    {
-      int yT = eC[1] - nC[1];
-      int xT = nC[0] - eC[0];
-
-      if (xT == yT)
-      {
-        continue;
-      }
-      if (yT > xT && xT > 0)
-      {
-        meetTime.push_back({yT, nC[2], eC[2], 0});
-      }
-      else if (yT < xT && yT > 0)
-      {
-        meetTime.push_back({xT, eC[2], nC[2], 1});
-      }
-    }
-  }
-  sort(meetTime.begin(), meetTime.end());
-
-  vector<int> ans(n, inf);
-  for (auto mt : meetTime)
-  {
-    if (ans[mt[2]] == inf && ans[mt[1] == inf])
-    {
-      ans[mt[1]] = mt[0];
-      adj[mt[2]].push_back(mt[1]);
-      parent[mt[1]] = mt[2];
-      continue;
-    }
-    if (ans[mt[1]] == inf)
-    {
-      if (mt[3])
-      {
-        int start = pos[mt[2]].ss;
-        int end = start + ans[mt[2]];
-        if (pos[mt[1]].ss >= start && pos[mt[1]].ss <= end)
-        {
-          ans[mt[1]] = mt[0];
-          adj[mt[2]].push_back(mt[1]);
-          parent[mt[1]] = mt[2];
-        }
-      }
-      else
-      {
-        int start = pos[mt[2]].ff;
-        int end = start + ans[mt[2]];
-
-        if (pos[mt[1]].ff >= start && pos[mt[1]].ff <= end)
-        {
-          ans[mt[1]] = mt[0];
-          adj[mt[2]].push_back(mt[1]);
-          parent[mt[1]] = mt[2];
-        }
-      }
-    }
-  }
-  rep(i, 0, n)
-  {
-    if (parent[i] == -1)
-    {
-      dfs(i, -1);
-    }
-  }
-  for (auto i : ansV)
-  {
-    cout << i - 1 << endl;
-  }
+  print(ans);
 }
 
 int main()
 {
   ios_base::sync_with_stdio(0);
-  setIO("filename");
-
   solve();
   return 0;
 }

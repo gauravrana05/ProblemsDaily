@@ -104,12 +104,37 @@ void setIO(string s)
 
 void solve()
 {
+    int n, m;
+    read(n, m);
+    vector<int> a(n);
+    vector<int> b(m);
+    read(a);
+    read(b);
+    vector<int> c(n + m);
+    int i = 0, j = 0, k = 0;
+    while (i < a.size() or j < b.size())
+    {
+
+        if (j == b.size() or (i < a.size() and a[i] < b[j]))
+        {
+            c[k++] = a[i++];
+        }
+        else
+        {
+            c[k++] = b[j++];
+        }
+    }
+    for (auto i : c)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
 }
 
 int main()
 {
     ios_base::sync_with_stdio(0);
-    setIO("filename");
+    // setIO("filename");
 
     solve();
     return 0;

@@ -94,136 +94,48 @@ void read(T &first, Args &...args)
 #define inf 1000000000
 #define pi 3.141592653589793
 #define br cout << endl;
-vector<array<int, 3>> north;
-vector<array<int, 3>> east;
-const int maxV = 1e4;
-vector<int> adj[maxV];
-vector<int> parent(maxV, -1);
-vector<int> ansV(maxV);
+
 using namespace std;
-
-void setIO(string s)
-{
-  freopen((s + ".in").c_str(), "r", stdin);
-  freopen((s + ".out").c_str(), "w", stdout);
-}
-
-int dfs(int node, int parent)
-{
-  int ans = 1;
-  for (int next : adj[node])
-  {
-    if (next != parent)
-    {
-      ans += dfs(next, node);
-    }
-  }
-  ansV[node] = ans;
-  return ans;
-}
 
 void solve()
 {
-  int n;
-  read(n);
-  vector<pair<int, int>> pos(n);
-  rep(i, 0, n)
+  int a, b;
+  read(a, b);
+  if ((a % 2 != 0 && b % 2 != 0))
   {
-    char d;
-    read(d);
-    pair<int, int> p;
-    read(p.first, p.second);
-    array<int, 3> varr = {p.ff, p.ss, i};
-    if (d == 'E')
+    print("No");
+  }
+  else if (a % 2 == 0 && b % 2 == 0)
+  {
+    print("Yes");
+  }
+  else if (a % 2 == 0)
+  {
+    if (a / 2 == b)
     {
-      east.push_back(varr);
+      print("No");
     }
     else
     {
-      north.push_back(varr);
-    }
-    pos[i] = p;
-  }
-
-  vector<vector<int>> meetTime;
-  for (auto nC : north)
-  {
-    for (auto eC : east)
-    {
-      int yT = eC[1] - nC[1];
-      int xT = nC[0] - eC[0];
-
-      if (xT == yT)
-      {
-        continue;
-      }
-      if (yT > xT && xT > 0)
-      {
-        meetTime.push_back({yT, nC[2], eC[2], 0});
-      }
-      else if (yT < xT && yT > 0)
-      {
-        meetTime.push_back({xT, eC[2], nC[2], 1});
-      }
+      print("Yes");
     }
   }
-  sort(meetTime.begin(), meetTime.end());
-
-  vector<int> ans(n, inf);
-  for (auto mt : meetTime)
+  else
   {
-    if (ans[mt[2]] == inf && ans[mt[1] == inf])
-    {
-      ans[mt[1]] = mt[0];
-      adj[mt[2]].push_back(mt[1]);
-      parent[mt[1]] = mt[2];
-      continue;
-    }
-    if (ans[mt[1]] == inf)
-    {
-      if (mt[3])
-      {
-        int start = pos[mt[2]].ss;
-        int end = start + ans[mt[2]];
-        if (pos[mt[1]].ss >= start && pos[mt[1]].ss <= end)
-        {
-          ans[mt[1]] = mt[0];
-          adj[mt[2]].push_back(mt[1]);
-          parent[mt[1]] = mt[2];
-        }
-      }
-      else
-      {
-        int start = pos[mt[2]].ff;
-        int end = start + ans[mt[2]];
-
-        if (pos[mt[1]].ff >= start && pos[mt[1]].ff <= end)
-        {
-          ans[mt[1]] = mt[0];
-          adj[mt[2]].push_back(mt[1]);
-          parent[mt[1]] = mt[2];
-        }
-      }
-    }
-  }
-  rep(i, 0, n)
-  {
-    if (parent[i] == -1)
-    {
-      dfs(i, -1);
-    }
-  }
-  for (auto i : ansV)
-  {
-    cout << i - 1 << endl;
+    if (b / 2 == a)
+      print("No");
+    else
+      print("Yes");
   }
 }
 
 int main()
 {
   ios_base::sync_with_stdio(0);
-  setIO("filename");
 
-  solve();
+  int t;
+  read(t);
+  while (t--)
+    solve();
   return 0;
 }
