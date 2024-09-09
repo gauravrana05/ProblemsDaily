@@ -45,7 +45,7 @@ def marks_by_gender(infile, gender, outfile):
    f = open(infile, 'r')
    g = open(outfile, 'w')
    header = f.readline()
-   header = header.replace(',Gender,', ',')
+   header = header.replace(',Gende  r,', ',')
    g.write(header)
    for line in f.readlines():
       fields = line.strip().split(',')

@@ -1,0 +1,68 @@
+192.168.11.83  Nicdemo
+192.168.11.183  Nicdemo
+192.168.11.68  Nicdemo
+192.168.11.106  Nicdemo
+192.168.11.226  Nicdemo
+192.168.11.29  Nicdemo
+192.168.11.131  Nicdemo
+192.168.11.225  Nicdemo
+192.168.11.160  Nicdemo
+192.168.11.192  Nicdemo
+192.168.11.248  Nicdemo
+192.168.11.230  Nicdemo
+192.168.11.219  Nicdemo
+192.168.11.229  Workflow automation
+192.168.11.215  Workflow automation
+192.168.11.133  Nicdemo
+192.168.11.107  Nicdemo
+192.168.11.32  Kubernetes
+192.168.11.94  Hybrid cloud management platform
+192.168.11.130  Kubernetes
+192.168.11.31  Nicdemo
+192.168.11.206  Nicdemo
+192.168.11.197  Nicdemo
+192.168.11.205  Nicdemo
+192.168.11.240  Nicdemo
+192.168.11.34  Nicdemo
+192.168.11.13  Nicdemo
+192.168.255.131  Hybrid cloud management platform
+192.168.11.178  Kubernetes
+192.168.11.109  Nicdemo
+192.168.11.51  Nicdemo
+192.168.11.75  Nicdemo
+192.168.11.39  Nicdemo
+192.168.11.139  Kubernetes
+192.168.11.185  Workflow automation
+192.168.11.210  Nicdemo
+192.168.11.138  Nicdemo
+192.168.11.179  Ceph storage
+192.168.11.102  Ceph storage
+192.168.11.57  Nicdemo
+192.168.11.253  Nicdemo
+192.168.11.7  Ceph storage
+192.168.11.84  Nicdemo
+192.168.11.150  Nicdemo
+192.168.11.101  Kubernetes
+192.168.11.8  Nicdemo
+192.168.11.76  Nicdemo
+192.168.11.246  Nicdemo
+192.168.11.174  Nicdemo
+192.168.11.254  Nicdemo
+192.168.11.81  Nicdemo
+192.168.11.209  Nicdemo
+192.168.11.213  Nicdemo
+192.168.11.87  Nicdemo
+192.168.11.120  Workflow automation
+192.168.11.134  Nicdemo
+192.168.11.250  Nicdemo
+192.168.11.112  Nicdemo
+192.168.11.89  Workflow automation
+192.168.11.26  Nicdemo
+192.168.11.95  Nicdemo
+192.168.11.67  Nicdemo
+192.168.11.148  Kubernetes
+192.168.11.149  Nicdemo
+192.168.11.25  Nicdemo
+192.168.11.129  Nicdemo
+192.168.11.195  Nicdemo
+192.168.11.218  Nicdemo

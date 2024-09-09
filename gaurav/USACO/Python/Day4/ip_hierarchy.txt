@@ -1,0 +1,56 @@
+10.167.166.33  Devops
+10.167.166.34  Devops
+10.157.2.63  Jpe4
+10.167.166.42  Devops
+10.167.166.180  Devops
+10.167.166.180  Devops
+10.167.166.19  Devops
+10.167.166.19  Devops
+10.130.169.60  Quality assurance & testing
+10.130.169.96  Cloudxp-provisioning
+10.128.1.118  Cloudxp-atap
+10.128.3.153  Cloudxp-atap
+10.128.1.132  Cloudxp-atap
+10.128.1.123  Cloudxp-atap
+10.10.10.244  Quality assurance & testing
+10.224.0.33  Quality assurance & testing
+192.168.51.222  Cloudxp-security
+10.0.0.6  Quality assurance & testing
+10.224.0.19  Quality assurance & testing
+192.168.51.97  Cloudxp-security
+192.168.13.35  Quality assurance & testing
+192.168.51.87  Cloudxp-security
+192.168.30.72  Hybrid cloud management platform
+192.168.51.69  Cloudxp-security
+10.9.0.104  Quality assurance & testing
+192.168.30.183  Hybrid cloud management platform
+192.168.13.165  Quality assurance & testing
+192.168.51.50  Cloudxp-security
+172.16.1.162  Quality assurance & testing
+10.3.0.19  Quality assurance & testing
+10.224.0.23  Cloud management platform
+192.168.51.149  Cloudxp-security
+192.168.51.4  Cloudxp-security
+10.157.237.83  Quality assurance & testing
+10.0.0.5  Quality assurance & testing
+192.168.13.185  Quality assurance & testing
+10.157.236.173  Quality assurance & testing
+192.168.13.164  Quality assurance & testing
+192.168.30.119  Quality assurance & testing
+10.224.0.25  K8 test application 1
+10.0.0.22  Quality assurance & testing
+192.168.30.27  Quality assurance & testing
+10.9.0.83  Quality assurance & testing
+10.224.0.8  Quality assurance & testing
+192.168.13.161  Quality assurance & testing
+10.224.0.37  Quality assurance & testing
+10.157.237.220  Quality assurance & testing
+10.224.0.18  Quality assurance & testing
+192.168.44.128  Cloudxp-private pass
+10.224.0.38  Quality assurance & testing
+10.3.0.18  Quality assurance & testing
+192.168.13.187  Quality assurance & testing
+192.168.51.206  Cloudxp-security
+192.168.51.67  Cloudxp-security
+10.9.0.175  Quality assurance & testing
+10.224.0.36  App05012024
