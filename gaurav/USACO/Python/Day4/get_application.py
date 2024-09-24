@@ -20,7 +20,8 @@ def add_applications_to_ips(file1_map, file2_path, output_file_path):
         for line in file2:
             ip_address = line.strip()
             application = file1_map.get(ip_address, "Unknown Application")
-            output_file.write(f"{ip_address}  {application}\n")
+            if application == "Cloudxp-fms":
+                output_file.write(f"{ip_address}  {application}\n")
 
 # Load IP to application mapping from the first file
 ip_to_app_map = load_ip_to_application_mapping(file1_path)
