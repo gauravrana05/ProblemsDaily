@@ -1,5 +1,5 @@
 class Array_Seq:
-  def __init__(self, n):
+  def __init__(self):
     self.A = []
     self.size = 0
   
@@ -8,6 +8,9 @@ class Array_Seq:
   
   def __iter__(self):
     return iter(self.A)
+  
+  def __str__(self):
+    return f'Array_seq({self.A})'
   
   def build(self, X):
     self.A = [a for a in X]
@@ -19,13 +22,13 @@ class Array_Seq:
   def set_at(self,i, x):
     self.A[i] = x
   
-  def _copy_forward(self, i, n, A, j):
-    for k in range(n):
-      A[j+k] = self.A[i+k]
+  def _copy_forward(self, start, count, target, dest):
+    for k in range(count):
+      target[dest+k] = self.A[start+k]
   
-  def _copy_backwards(self, i, n, A, j):
-    for k in range(n-1, -1, -1):
-      A[j+k] = self.A[i+k]
+  def _copy_backwards(self, start, count, target, dest):
+    for k in range(count, -1, -1):
+      target[dest+k] = self.A[start+k]
       
   def insert_at(self, i, x):
     n = len(self.A)
@@ -55,8 +58,27 @@ class Array_Seq:
   
   def insert_last(self, x):
     return self.insert_at(len(self.A), x)
-  
-  
+
+if __name__ == "__main__":
+  def main():
+    a = Array_Seq()
+    a.build([0,1,2,3,4,5,6,7,8,9])
+    print(a)
+    a.insert_at(4,-905)
+    print(a)
+    a.delete_at(4)
+    print(a)
+    a.delete_first()
+    print(a)
+    a.delete_last()
+    print(a)
+    a.insert_first(34)
+    print(a)
+    a.insert_last(45)
+    print(a)
+  main()
+
+
   
     
   

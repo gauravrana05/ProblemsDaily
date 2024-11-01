@@ -10,4 +10,3 @@ class StaticArray:
     if not (0 <= k < len(self.data)): raise IndexError
     self.data[k] = value
   
-  

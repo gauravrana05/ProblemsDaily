@@ -33,27 +33,12 @@
             </tr>
         </thead>
         <tbody>
-          
+          {% for i in data%}
             <tr>
-            <td>2020 </td>
-            <td>John Doe </td>
-            <td>English </td>
-          
-            <tr>
-            <td>2021 </td>
-            <td>Jane Smith </td>
-            <td>Spanish </td>
-          
-            <tr>
-            <td>2022 </td>
-            <td>Raj Kumar </td>
-            <td>Hindi </td>
-          
-            <tr>
-            <td>2023 </td>
-            <td>Maria Garcia </td>
-            <td>French </td>
-          
+            <td>{{ i['year']}} </td>
+            <td>{{ i['awardee']}} </td>
+            <td>{{ i['language']}} </td>
+          {% endfor %}
         </tbody>
     </table>
 

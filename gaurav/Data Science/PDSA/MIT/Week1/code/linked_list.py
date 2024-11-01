@@ -11,6 +11,7 @@ class LinkedListNode:
 class LinkedListSeq:
   def __init__(self):
     self.head = None 
+    self.tail = None 
     self.size = 0
   
   def __len__(self):
@@ -37,7 +38,7 @@ class LinkedListSeq:
   def insert_first(self, x):
     node = LinkedListNode(x)
     node.next = self.head 
-    self.head = node.next
+    self.head = node
     self.size += 1
   
   def delete_first(self):
@@ -70,6 +71,30 @@ class LinkedListSeq:
   def delete_last(self):
     self.delete_at(len(self) - 1)
     
+ 
+ 
+if __name__ == "__main__":
   
+  def reverse(head):
+    if head == None or head.next == None :
+      return head
+    node = reversed(head.next) 
+    head.next.next = head
+    head.next = None 
+    return node 
+    
+  def reorder_students(L):
+    size = L.size
+    n = size // 2
+    node = L.head
+    while(n-1):
+      node = node.next 
+    
+    node.next = reverse(node.next)
+      
+      
+  
+  def main():
+    
     
     
