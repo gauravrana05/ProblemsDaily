@@ -5,10 +5,8 @@
 output
 *.exe
 *.out
-gaurav/CSES/Sorting And Searching/.env
-gaurav/Data Science/MAD1/.venv/
-gaurav/Data Science/MAD1/Week4/week4_env/
-gaurav/Data Science/MAD1/Week5/experiment-sqlalchemy/.e*
-gaurav/Data Science/MAD1/Week5/test.sqlite
-gaurav/Data Science/MAD1/Week5/experiment-flask-sqlalchemy/.e*
-gaurav/Data Science/MAD1/Week5/experiment-flask-sqlalchemy/.experiment-flask-sqlalchemy/lib/
+**/venv
+**/.venv/
+**/.env
+**/test.sqlite
+**/__pycache__
