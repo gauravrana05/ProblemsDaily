@@ -1,0 +1,6 @@
+
+## <parent>/<directory>$
+PS1=PS1='\[\033[0;34m\]$(basename $(dirname $PWD))/\[\033[0;32m\]\W\[\033[0m\] \$ '
+
+Shortening Directory Path on WindowsPowerShell
+function prompt {"PS " + (get-location).drive.name+":\...\"+ $( ( get-item $pwd ).Name ) +">"}
